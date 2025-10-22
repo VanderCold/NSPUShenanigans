@@ -12,21 +12,44 @@ class Gen<T> {
 		System.out.println("Тип T: " + ob.getClass().getName());
 	}
 }
+class TwoGen<T,V> {
+	T ob1;
+	V ob2;
+	TwoGen(T o1, V o2) {
+		ob1 = o1;
+		ob2 = o2;
+	}
+
+	T getOb1() {
+		return ob1;
+	}
+
+        V getOb2() {
+                return ob2;
+	}
+	
+        void showTypes() {
+		System.out.println("Тип T: " + ob1.getClass().getName());
+		System.out.println("Тип V: " + ob2.getClass().getName());
+	}
+}
+
 class pr001 {
 	public static void main (String[] args) {
-		Get<Integer> iOb;
-		iOb = new Gen<Integer>(88);
-		iOb.showType();
-		int v = iOb.getOb();
+		Gen<String> strOb = new Gen<String>("Один обобщ. тип");
+		String str = strOb.getOb();
+		System.out.println("Значение обобщ. типа с 1 парам. " + str);
+
+		TwoGen<Integer, String> tgOb;
+		
+		tgOb = new TwoGen<Integer, String>(88, "Обощения");
+		tgOb.showTypes();
+		int v = tgOb.getOb1();
 		System.out.println("Значение: " + v);
 
 		System.out.println();
 
-		Gen<String> strOb = new Gen<String>("Строка класса");
-		strOb.showType();
-
-		String str = strOb.getOb();
+		str = tgOb.getOb2();
 		System.out.println("Значение: " + str);
-		Sytem.out.println();
 	}
 }
