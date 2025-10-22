@@ -21,5 +21,12 @@ class pr001 {
 		System.out.println("Значение: " + v);
 
 		System.out.println();
+
+		Gen<String> strOb = new Gen<String>("Строка класса");
+		strOb.showType();
+
+		String str = strOb.getOb();
+		System.out.println("Значение: " + str);
+		Sytem.out.println();
 	}
 }
