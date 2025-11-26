@@ -8,6 +8,8 @@ class GenDyQueue<T> implements IGenQ<T> {
 	public void put(T obj) throws QueueFullException {
 		if (putloc == q.length) {
 			//T[] t = new T[q.length * 2];
+			int newSeize = q.length * 2;
+			T[] t = (T[]) new Object[newSize];
 			for (int i=0; i < q.length; i++)
 				t[i] = q[i];
 			q = t;
