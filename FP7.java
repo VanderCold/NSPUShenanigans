@@ -95,3 +95,15 @@ MyIntNum myNum = new MyIntNum(12);
 interface IntPredicate {
     boolean test(int n);
 }
+
+interface SomeTest<T> {
+	boolean test(T n, T m);
+}
+class MyClass {
+	static <T> boolean myGenMeth(T x, T y) {
+		boolean result = false;
+		//...
+		return result;
+	}
+}
+SomeTest<Integer> mRef = MyClass::<Integer>myGenMeth;
